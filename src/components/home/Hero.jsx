@@ -3,7 +3,6 @@ import { motion } from 'motion/react'
 import { ArrowDown, ArrowUpRight } from 'lucide-react'
 import AnimatedHeading from '../common/AnimatedHeading'
 import ApertureMark from '../common/ApertureMark'
-import BrandLogo from '../common/BrandLogo'
 import GradientText from '../common/GradientText'
 import PrimaryButton from '../common/PrimaryButton'
 import { art } from '../../data/artwork'
@@ -177,27 +176,17 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="container-x flex min-h-[100svh] flex-col justify-end pb-24 pt-[min(92vw,24rem)] sm:pt-[min(60vw,30rem)] lg:justify-center lg:pb-20 lg:pt-32">
-        <div data-hero-copy className="max-w-[60rem]">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-6">
-            <motion.div
-              className="hidden sm:block"
-              initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.1 }}
-            >
-              <BrandLogo size="lg" />
-            </motion.div>
-            <motion.p
-              className="eyebrow flex items-center gap-4 text-soft/80"
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
-            >
-              <span aria-hidden="true" className="h-px w-10 bg-aurora sm:h-10 sm:w-px" />
-              Welcome to VKS Film Production
-            </motion.p>
-          </div>
+      <div className="container-x flex min-h-[100svh] w-full flex-col justify-end pb-24 pt-[min(88vw,22rem)] sm:pt-[min(55vw,28rem)] lg:justify-center lg:pb-20 lg:pt-32">
+        <div data-hero-copy className="w-full max-w-[64rem]">
+          <motion.p
+            className="eyebrow flex items-center gap-4 text-soft/80"
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
+          >
+            <span aria-hidden="true" className="h-px w-10 bg-aurora" />
+            Welcome to VKS Film Production
+          </motion.p>
 
           <AnimatedHeading
             as="h1"

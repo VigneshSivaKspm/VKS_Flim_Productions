@@ -81,7 +81,7 @@ export const organizationJsonLd = {
   slogan: siteConfig.tagline,
   email: siteConfig.contact.email,
   telephone: siteConfig.contact.phoneHref.replace('tel:', ''),
-  ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl, logo: `${siteConfig.siteUrl}/og-image.jpg` } : {}),
+  ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',

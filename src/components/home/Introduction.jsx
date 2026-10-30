@@ -136,7 +136,7 @@ export default function Introduction() {
           </Reveal>
         </div>
 
-        <div className="mx-auto w-full max-w-[26rem] lg:col-span-5 lg:max-w-none">
+        <div className="mx-auto w-full max-w-sm sm:max-w-md lg:col-span-5 lg:max-w-none">
           <div className="relative">
             <div
               data-intro-ring

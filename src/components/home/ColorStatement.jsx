@@ -47,7 +47,7 @@ export default function ColorStatement() {
   )
 
   return (
-    <section ref={root} aria-labelledby="cm-title" className="relative isolate grid min-h-[92svh] place-items-center overflow-hidden bg-obsidian py-32">
+    <section ref={root} aria-labelledby="cm-title" className="relative isolate grid min-h-[100svh] w-full place-items-center overflow-hidden bg-obsidian py-28 md:py-36">
       <div data-cm-wipe aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
         <div data-cm-img className="absolute inset-0">
           <picture>

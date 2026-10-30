@@ -94,7 +94,7 @@ export default function Showreel() {
             <img
               src={art.showreelPoster.src}
               srcSet={art.showreelPoster.srcSet}
-              sizes="(min-width: 1400px) 1320px, 94vw"
+              sizes="(min-width: 1600px) 1472px, (min-width: 1400px) 90vw, 94vw"
               width={art.showreelPoster.width}
               height={art.showreelPoster.height}
               alt=""

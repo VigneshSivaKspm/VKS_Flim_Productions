@@ -63,7 +63,7 @@ export default function ContactCTA({
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_48%_55%_at_50%_50%,rgb(9_9_11/0.92),rgb(9_9_11/0.5)_70%,transparent)]"
       />
 
-      <div className="container-x flex flex-col items-center text-center">
+      <div className="container-x flex w-full flex-col items-center text-center">
         <Eyebrow number={number} tone="text-magenta" className="justify-center">
           {eyebrow}
         </Eyebrow>

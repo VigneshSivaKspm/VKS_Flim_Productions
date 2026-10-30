@@ -56,7 +56,7 @@ export default function PageHero({
     <section
       ref={root}
       aria-labelledby="page-title"
-      className={`relative isolate overflow-hidden ${compact ? 'pb-16 pt-36 md:pb-24 md:pt-48' : 'flex min-h-[92svh] items-end pb-20 pt-40 md:pb-28'}`}
+      className={`relative isolate overflow-hidden ${compact ? 'pb-14 pt-32 sm:pb-20 sm:pt-40 md:pb-24 md:pt-48' : 'flex min-h-[100svh] w-full items-end pb-20 pt-36 sm:pt-40 md:pb-28'}`}
     >
       <div
         data-ph-glow

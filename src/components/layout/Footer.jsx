@@ -53,7 +53,7 @@ export default function Footer() {
   return (
     <footer ref={ref} className="relative isolate overflow-hidden border-t border-soft/[0.06] bg-obsidian">
       <div data-footer-art aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 opacity-55">
-        <PaintArtwork image={art.footerFlow} sizes="100vw" className="w-full min-w-[56rem] object-cover" />
+        <PaintArtwork image={art.footerFlow} sizes="100vw" className="w-full min-w-[44rem] object-cover sm:min-w-[56rem]" />
         <div className="absolute inset-0 bg-gradient-to-b from-obsidian via-obsidian/70 to-obsidian/30" />
       </div>
 
