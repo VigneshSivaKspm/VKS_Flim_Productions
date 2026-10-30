@@ -36,12 +36,12 @@ export default function Header() {
           <div
             className={`mt-3 flex items-center justify-between rounded-full border transition-[padding,background-color,border-color] duration-500 ease-cinema ${
               scrolled
-                ? 'border-soft/10 bg-obsidian/75 py-1.5 pl-4 pr-1.5 backdrop-blur-md md:pl-5'
-                : 'border-transparent bg-transparent py-3 pl-0 pr-0'
+                ? 'border-soft/10 bg-obsidian/75 py-2.5 pl-5 pr-2.5 backdrop-blur-md md:pl-6'
+                : 'border-transparent bg-transparent py-4 pl-0 pr-0'
             }`}
           >
             <Link to="/" aria-label={`${siteConfig.name} — home`} className="rounded-full">
-              <BrandLogo size={scrolled ? 'sm' : 'md'} />
+              <BrandLogo size="md" />
             </Link>
 
             <nav aria-label="Primary" className="hidden lg:block">
@@ -52,7 +52,7 @@ export default function Header() {
                       to={link.path}
                       end={link.path === '/'}
                       className={({ isActive }) =>
-                        `group relative block px-5 py-3 text-[0.72rem] font-bold uppercase tracking-[0.24em] transition-colors duration-300 ${
+                        `group relative block px-5 py-3 text-[0.8rem] font-bold uppercase tracking-[0.24em] transition-colors duration-300 ${
                           isActive ? 'text-soft' : 'text-soft/60 hover:text-soft'
                         }`
                       }

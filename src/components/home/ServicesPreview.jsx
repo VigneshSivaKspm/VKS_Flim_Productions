@@ -1,9 +1,8 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpLeft, ArrowUpRight } from 'lucide-react'
 import SectionHeading from '../common/SectionHeading'
 import Reveal from '../common/Reveal'
-import PaintArtwork from '../common/PaintArtwork'
 import GradientText from '../common/GradientText'
 import PrimaryButton from '../common/PrimaryButton'
 import DraftNote from '../common/DraftNote'
@@ -23,10 +22,6 @@ export default function ServicesPreview() {
           tl.fromTo(row.querySelector('[data-svc-line]'), { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: 'expo.inOut' })
             .fromTo(row.querySelector('[data-svc-num]'), { yPercent: 100, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 1.1, ease: 'expo.out' }, 0.2)
             .fromTo(row.querySelector('[data-svc-copy]'), { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: 'expo.out' }, 0.3)
-          const img = row.querySelector('[data-svc-img]')
-          if (img) {
-            tl.fromTo(img, { clipPath: 'inset(0% 0% 0% 100% round 14px)' }, { clipPath: 'inset(0% 0% 0% 0% round 14px)', duration: 1.3, ease: 'expo.inOut' }, 0.25)
-          }
         })
       })
       return () => mm.revert()
@@ -63,50 +58,58 @@ export default function ServicesPreview() {
         </div>
 
         <ul className="mt-16 md:mt-24">
-          {services.map((s) => {
+          {services.map((s, i) => {
             const a = accents[s.accent]
+            const flip = i % 2 === 1
+            const Arrow = flip ? ArrowUpLeft : ArrowUpRight
             return (
               <li key={s.slug} data-svc-row className="group relative">
-                <span data-svc-line aria-hidden="true" className="absolute inset-x-0 top-0 h-px origin-left bg-soft/12" />
+                <span
+                  data-svc-line
+                  aria-hidden="true"
+                  className={`absolute inset-x-0 top-0 h-px bg-soft/12 ${flip ? 'origin-left md:origin-right' : 'origin-left'}`}
+                />
                 <span
                   aria-hidden="true"
                   className="absolute inset-0 -z-10 origin-bottom scale-y-0 opacity-0 transition-[transform,opacity] duration-700 ease-cinema group-hover:scale-y-100 group-hover:opacity-100"
-                  style={{ background: `linear-gradient(90deg, ${a.glow}, transparent 70%)` }}
+                  style={{ background: `linear-gradient(${flip ? '270deg' : '90deg'}, ${a.glow}, transparent 70%)` }}
                 />
                 <Link
                   to={`/services#${s.slug}`}
-                  className="grid grid-cols-[1fr_auto] items-center gap-x-5 gap-y-3 py-8 md:grid-cols-12 md:gap-x-8 md:py-10"
+                  className={`flex flex-wrap items-center gap-x-5 gap-y-3 py-8 md:flex-nowrap md:gap-x-10 md:py-12 ${
+                    flip ? 'md:flex-row-reverse md:text-right' : ''
+                  }`}
                 >
-                  <span className="overflow-hidden md:col-span-2">
+                  <span className="order-1 shrink-0 overflow-hidden md:w-[clamp(7rem,13vw,12rem)]">
                     <span
                       data-svc-num
                       aria-hidden="true"
-                      className={`text-outline block font-display text-[clamp(2.6rem,5.5vw,5.75rem)] font-extrabold leading-none tracking-[-0.04em] transition-colors duration-500 ${a.text} group-hover:[-webkit-text-fill-color:currentColor]`}
+                      className={`text-outline block font-display text-[clamp(2.6rem,6vw,6.5rem)] font-extrabold leading-none tracking-[-0.04em] transition-colors duration-500 ${a.text} group-hover:[-webkit-text-fill-color:currentColor]`}
                     >
                       {s.number}
                     </span>
                   </span>
 
-                  <span data-svc-copy className="col-span-2 block min-w-0 max-md:order-3 md:col-span-6 lg:col-span-5">
-                    <span className="block font-display text-[clamp(1.45rem,2.7vw,2.6rem)] font-bold uppercase leading-[1.02] tracking-[-0.02em] transition-transform duration-700 ease-cinema group-hover:translate-x-2">
+                  <span data-svc-copy className="order-3 block min-w-0 basis-full md:order-2 md:flex-1 md:basis-auto">
+                    <span
+                      className={`block font-display text-[clamp(1.45rem,3vw,3rem)] font-bold uppercase leading-[1.02] tracking-[-0.02em] transition-transform duration-700 ease-cinema ${
+                        flip ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2'
+                      }`}
+                    >
                       {s.title}
                     </span>
-                    <span className="mt-3 hidden max-w-md text-[0.98rem] leading-relaxed text-muted sm:block">{s.short}</span>
+                    <span className={`mt-3 hidden max-w-md text-[0.98rem] leading-relaxed text-muted sm:block ${flip ? 'md:ml-auto' : ''}`}>
+                      {s.short}
+                    </span>
                   </span>
 
-                  <span data-svc-img className="relative hidden overflow-hidden rounded-[14px] lg:col-span-3 lg:block">
-                    <PaintArtwork
-                      image={s.image}
-                      sizes="22vw"
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-[1200ms] ease-cinema group-hover:scale-110"
-                    />
-                  </span>
-
-                  <span className="flex justify-end max-md:order-2 md:col-span-4 lg:col-span-2">
+                  <span className="order-2 ml-auto flex shrink-0 md:order-3 md:ml-0">
                     <span
-                      className={`grid size-12 place-items-center rounded-full border border-soft/20 transition-all duration-500 ease-cinema group-hover:rotate-45 group-hover:border-transparent group-hover:text-obsidian md:size-16 ${a.text} ${a.hoverBg}`}
+                      className={`grid size-12 place-items-center rounded-full border border-soft/20 transition-all duration-500 ease-cinema group-hover:border-transparent group-hover:text-obsidian md:size-16 ${
+                        flip ? 'group-hover:-rotate-45' : 'group-hover:rotate-45'
+                      } ${a.text} ${a.hoverBg}`}
                     >
-                      <ArrowUpRight className="size-5 text-current group-hover:text-obsidian" aria-hidden="true" />
+                      <Arrow className="size-5 text-current group-hover:text-obsidian" aria-hidden="true" />
                     </span>
                   </span>
                   <span className="sr-only">&mdash; learn more about {s.title}</span>

@@ -12,7 +12,7 @@ const files = import.meta.glob('../../assets/branding/logo.{svg,png,webp,avif,jp
 })
 const officialLogo = Object.values(files)[0]
 
-const heights = { sm: 'h-9', md: 'h-11', lg: 'h-20 md:h-24' }
+const heights = { sm: 'h-9', md: 'h-12', lg: 'h-20 md:h-24' }
 
 export default function BrandLogo({ size = 'md', className = '' }) {
   if (officialLogo) {
@@ -34,7 +34,7 @@ export default function BrandLogo({ size = 'md', className = '' }) {
       <svg
         viewBox="0 0 40 40"
         aria-hidden="true"
-        className={large ? 'size-12 md:size-14' : size === 'sm' ? 'size-8' : 'size-9'}
+        className={large ? 'size-12 md:size-14' : size === 'sm' ? 'size-8' : 'size-10'}
       >
         <defs>
           <linearGradient id={`bl-g-${size}`} x1="0" y1="0" x2="1" y2="1">
@@ -58,14 +58,14 @@ export default function BrandLogo({ size = 'md', className = '' }) {
       <span className="flex flex-col">
         <span
           className={`font-display font-extrabold tracking-[-0.02em] text-soft ${
-            large ? 'text-[2.4rem] md:text-[2.9rem]' : size === 'sm' ? 'text-[1.3rem]' : 'text-[1.5rem]'
+            large ? 'text-[2.4rem] md:text-[2.9rem]' : size === 'sm' ? 'text-[1.3rem]' : 'text-[1.7rem]'
           }`}
         >
           VKS
         </span>
         <span
           className={`font-sans font-semibold uppercase text-muted ${
-            large ? 'mt-1.5 text-[0.7rem] tracking-[0.42em]' : 'mt-1 text-[0.5rem] tracking-[0.36em]'
+            large ? 'mt-1.5 text-[0.7rem] tracking-[0.42em]' : 'mt-1 text-[0.56rem] tracking-[0.36em]'
           }`}
         >
           Film Production

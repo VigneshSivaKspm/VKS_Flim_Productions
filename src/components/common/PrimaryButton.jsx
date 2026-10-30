@@ -34,8 +34,8 @@ export default function PrimaryButton({
 }) {
   const v = variants[variant]
   const sizing =
-    size === 'sm' ? 'min-h-11 pl-5 pr-1.5 gap-3 text-[0.68rem]' : 'min-h-14 pl-7 pr-2 gap-5 text-[0.76rem]'
-  const iconSize = size === 'sm' ? 'size-8' : 'size-10'
+    size === 'sm' ? 'min-h-12 pl-6 pr-2 gap-4 text-[0.74rem]' : 'min-h-14 pl-7 pr-2 gap-5 text-[0.76rem]'
+  const iconSize = size === 'sm' ? 'size-9' : 'size-10'
 
   const inner = (
     <>
